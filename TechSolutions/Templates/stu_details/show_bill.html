@@ -1,0 +1,31 @@
+{% extends "stu_details/base.html" %}
+
+
+{% block content %}
+{% include "stu_details/navbar.html" %}
+{% include "stu_details/searchbox.html" %}
+
+<h4><center>Show Bill</center> </h4>
+ {% if data  %}
+ {% for i in data %}
+<a href="/print_bill/{{i.bill_no}}/">
+    <div class="card">
+        <div class="card-body">
+        {{i.bill_no}}
+        {{i.paid_date}}
+        </div>
+    </div>
+</a>
+
+{% endfor %}
+{% else %}
+<div class="card">
+    <div class="card-body alert-danger">
+    <h5>No Bills are available</h5>
+    </div>
+</div>
+ 
+{% endif %}
+
+
+{% endblock  %}

@@ -1,0 +1,71 @@
+{% extends 'stu_details/base.html' %}
+{% block content %}
+
+{% include "stu_details/navbar.html" %}
+
+{% if res != None %}
+<div class="alert alert-success" role="alert">
+    A simple success alert—check it out!
+  </div>
+
+
+{% endif %}
+
+<div>
+    <h4><center>Billing Section</center></h4>
+</div>
+
+{% include "stu_details/searchbox.html" %}
+{% comment %} <iframe src="stu_details/Bill_frame.html" frameborder="0">
+   
+</iframe> {% endcomment %}
+<div class = "d-grid justify-content-center">
+    <div class= "">
+     <form method = "POST" name = 'result1' class="input-group has-validation form-control">
+    {% csrf_token %}
+    <table id= "dont_type">
+        {% comment %} <tr>
+            <th>Bill No :</th><td><input type= "text" name="Bill_No" value = {{bill_no.bill_no}} ></td>
+        </tr> {% endcomment %}
+        <tr>
+            <th>Selected Course :</th><td><input class = "form-control" type="text" name="Course" readonly value = {{result.Selected_course}} ></td>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <td><input class = "form-control" type="text"name = 'Id' readonly  value = {{result.id}} ></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td><input class = "form-control" type="text" name = 'Name' readonly value = {{result.Name}} ></td>
+        </tr>
+        <tr>
+            <th>Total Amount Paid :</th>
+            <td><input class = "form-control" type="number" name = 'Total_paid' readonly value = {{result.Total}} ></td>
+        </tr>
+        <tr>
+            <th>Current Paid Amount  :</th>
+            <td><input class = "form-control" type="number" name = 'current_paid' required></td>
+        </tr>
+        <tr>
+            <th>Date :</th>
+            <td><input class = "form-control" type="date" id="today-date" name="date" readonly></td>
+        </tr>
+        <tr>
+            <td class = "text-center align-middle mt-3" colspan = "2"><button class = "btn btn-success " type = 'submit' name = 'form_type' value = 'Store'>Submit</button></td>
+        </tr>
+    </table>   
+    </div>
+    
+ </div>
+   <script>
+        // Get today's date
+        const today = new Date();
+        
+        // Format the date as YYYY-MM-DD
+        const formattedDate = today.toISOString().split('T')[0];
+        
+        // Set the input's value to today's date
+        document.getElementById('today-date').value = formattedDate;
+    </script>
+</form>
+{% endblock  %}

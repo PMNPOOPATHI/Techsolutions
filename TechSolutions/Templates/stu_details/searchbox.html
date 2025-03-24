@@ -1,0 +1,9 @@
+<div id = "CON5" class "container-fluid " >
+    <form method ="POST" name = 'Search_bar' class = "form-control p-3">
+    <p class = "d-flex justify-content-center h4">Search Details </p>
+
+        {% csrf_token %}
+        <input class = "btn btn-outline-secondary form form-floting" type="text" name = "ref" required>
+        <button class ="btn btn-success" type = "submit" name = 'form_type' value = "Search" required>Search</button>
+    </form>
+</div>

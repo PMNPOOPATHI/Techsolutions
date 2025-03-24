@@ -1,0 +1,34 @@
+{% extends 'stu_details/base.html' %}
+{% block content %}
+  {% include 'stu_details/navbar.html' %}
+  {% load static %}
+  <div class="container text-center overflow-auto">
+    <div class="row justify-content-evenly align-items-center">
+      <div class="col-4">
+        <div class="col-12">
+          <img src="{% static 'images/logo_bg.png' %}" alt=""height = "50px" width ="50px">
+          <h4>LogIn</h4>
+        </div>
+        {% comment %} <div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+            <symbol id="check-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </symbol>
+          </svg>
+          <div class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <div>
+              {{message}}
+            </div>
+          </div>
+        </div> {% endcomment %}
+        <form class="card m-3 p-4 gap-4" style="width: 24rem; " method="POST">
+          {% csrf_token %}
+          <input type="text" placeholder="User Name" name="person" />
+          <input type="password" name="Passkey" placeholder="Password" />
+          <input type="submit" value="Login" class="btn btn-primary btn-sm" />
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

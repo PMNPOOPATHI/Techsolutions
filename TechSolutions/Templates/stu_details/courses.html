@@ -1,0 +1,19 @@
+{% extends 'stu_details/base.html' %}
+{% block content %}
+
+{% include 'stu_details/navbar.html' %}
+<div class = 'container row'></div>
+{% for i in data %}
+<div class="card">
+  <div class="card-header">
+    {{i.Name}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{i.Name}}</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.{{i.Price}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock  %}

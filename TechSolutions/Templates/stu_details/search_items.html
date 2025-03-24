@@ -1,0 +1,30 @@
+{% extends "stu_details/base.html" %}
+{% block content %}
+<div>
+    <form method = "POST">
+        {% csrf_token %}
+        <p><input type="text" name = 'Search_Item'></p>
+        <p><input type="submit" value = "Search"></p>    </form>
+</div>
+<div>
+    <p>{{error}}</p>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Total Fees</th>
+            <th>Paid Fees</th>
+            <th>Pending Fees</th>
+        </tr>
+        <tr>
+            <td>{{stu.id}}</td>
+            <td>{{stu.Name}}</td>
+            <td>{{stu.Selected_course}}</td>
+            <td></td>
+            <td>{{bill.total_paid}}</td>
+            
+        </tr>
+    </table>
+</div>
+{% endblock  %}

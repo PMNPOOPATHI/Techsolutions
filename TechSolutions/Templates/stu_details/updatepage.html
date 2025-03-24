@@ -1,0 +1,50 @@
+{% extends 'stu_details/base.html' %}
+{% block content %}
+{% include 'stu_details/navbar.html' %}
+<div>
+<h4>Update Page</h4>
+
+
+<div>
+    <form method = "POST" name = "submit_data"  >
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td><label>Name :</label></td>
+                <td><input type="text" name = "Name" value = "{{data.Name}}"></td>
+        </tr>
+        <tr>
+            <td><label>Gender :</label></td>
+            <td><input type="text" name="gender" value = "{{data.gender}}"></td>
+        </tr>
+        <tr>
+            <td><label>Mobile No :</label></td>
+            <td><input type="number" name="Mobile_no" value = "{{data.Mobile_no}}" ></td>
+        </tr>
+        <tr>
+            <td><label>Address :</label></td>
+            <td><input type="text" name="Address" value = "{{data.Address}}"></td>
+        </tr>
+        <tr>
+            <td>Course :</td>
+            <td>
+                <select name="course" default :"" >
+                <option name ="{{data.Selected_course}}" Selected>{{data.Selected_course}}</option>
+                <option value="Full Stack Development">Full Stack Development</option>
+                <option value="Python">Python</option>
+                <option value="Web Development Basic">Web development Basic</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Course Duration :</td>
+            <td><input type="text" name ="duration" value = "{{data.duration}}"></td>
+        </tr>
+
+
+        </table>
+        <input type="submit" value='Update' class = "btn btn-success">
+
+    </form>
+</div>
+</div>
+{% endblock  %}

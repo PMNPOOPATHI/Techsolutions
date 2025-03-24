@@ -1,0 +1,67 @@
+{% extends 'stu_details/base.html' %}
+{% block content %}
+<div>
+    {% include 'stu_details/navbar.html' %}
+    <div>
+        <h4><center>Student Detail</center></h4>
+    </div>
+    <div class = "d-flex container row">
+        <div class = "col container">
+            <table>
+            <tr>
+                <td>Name :</td>
+                <td>{{i.Name}}</td>
+            </tr>
+            <tr>
+                <td>Gender :</td>
+                <td>{{i.gender}}</td>
+            </tr>
+            <tr>
+                <td>Course :</td>
+                <td>{{i.Selected_course}}</td>
+            </tr>
+            <tr>
+                <td>Mobile Number :</td>
+                <td>{{i.Mobile_no}}</td>
+            </tr>
+            <tr>
+                <td>Address :</td>
+                <td>{{i.Address}}</td>
+            </tr>
+    
+            </table>
+            
+        </div>
+        <div class = "col">
+            <table>
+                
+                <tr>
+                    <td>Duration :</td>
+                    <td>{{i.duration}}</td>
+                </tr>
+                <tr>
+                    <td>Course Amount :</td>
+                    <td>{{i.Fees}}</td>
+                </tr>
+                <tr>
+                    <td>Batch :</td>
+                    <td>{{i.batch}}</td>
+                </tr>
+                <tr>
+                    <td>Paid Fees  :</td>
+                    <td>{{i.Total}}</td>
+                </tr>
+                <tr>
+                    <td><label>Balance Amount :</label>
+                    </td>
+                    <td>{{i.blnc_amount}}</td>
+                </tr>
+        
+                </table>
+    
+        </div>
+
+    </div>
+    
+</div>
+{% endblock  %}

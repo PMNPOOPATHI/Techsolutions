@@ -1,0 +1,32 @@
+{% extends 'stu_details/base.html' %}
+{% block content %}
+  <div>
+    {% include 'stu_details/navbar.html' %}
+  </div>
+  <div>
+    <div class="container p-3">
+
+      <div class="d-grid">
+        <table class="table table-bordered table-success table-striped text-center table-active table-hover">
+          <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Action</th>
+          </tr>
+          {% for i in item %}
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.gender}}</td>
+            <td>
+              <a href="/view_details/{{i.id}}/">View</a>|<a href="/update_page/{{i.id}}/">Update</a>|<a href="/delete/{{i.id}}/">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <a href="/add_students/" class ='btn btn-success'>Add Students</a>
+    </div>
+  </div>
+{% endblock %}

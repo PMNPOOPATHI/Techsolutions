@@ -1,0 +1,50 @@
+{% extends "stu_details/base.html" %}
+
+{% block content %}
+{% include "stu_details/navbar.html" %}
+<div class = "container">
+    <div>
+        <h4>Accounts Section</h4>
+    </div>
+    
+    <div class = "container">
+        <form method = "POST" class = "form-control">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><label>Date </label></td>
+                    <td>:<input type="date"></td>
+                </tr>
+                <tr>
+                    <td><label>Type </label></td>
+                    <td>
+                        :<select name="type" id="type">
+                            <option value="Debit" selected readonly>Debit</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Expence Detail </label></td>
+                    <td>:
+                        <select name="Details" id="">
+                        <option value="None" selected>Select One...</option>
+                        <option value="Tea">Tea</option>
+                        <option value="Food">Food</option>
+                        <option value="Petrol">Petrol</option>
+                    </select>
+                </td>
+                </tr>
+                <tr>
+                    <td><label>Total Expence </label></td>
+                    <td>:<input type="number" name="Amount" id=""></td>
+                </tr>
+                <tr><td><input class = "btn btn-success" type="submit" value = "Submit"></td></tr>
+            </table>  
+        </form>
+            
+    </div>
+    
+</div>
+
+
+{% endblock  %}

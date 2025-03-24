@@ -1,0 +1,18 @@
+{% extends "stu_details/base.html" %}
+
+{% block content %}
+{% include "stu_details/navbar.html" %}
+{% if message %}
+<div class="messages">
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value='Add New Student'>
+</form>
+
+{% endblock  %}

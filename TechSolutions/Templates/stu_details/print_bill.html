@@ -1,0 +1,93 @@
+{% extends 'stu_details/base.html' %}
+{% block content %}
+
+{% include 'stu_details/navbar.html' %}
+{% include "stu_details/searchbox.html" %}
+
+
+{% comment %} <div>
+    <table border = 1>
+        <tr>
+           <th>Date:</th>
+                 <th>[        ]</th>
+        <th colspan = >Tech Solutions</th>
+        <th>Bill No:</th>
+        <th>[]</th> 
+        </tr>
+        
+    </table>
+</div> {% endcomment %}
+{% if data and course %}
+<div class = "container d-grid justify-content-center">
+<div class =" row p-3  ">
+    <div class ="col bill " id = "printDiv">
+        <table border = '2' height = '400px' width= "750px" class = "bg_logo ">
+            <tr>
+                <td colspan = "6"><h3><center><b>Tech Solutions</b></center></h3><center><h5>Melur (tk) <br>Madurai (dt)  - 625 106</center></h5></td>
+            </tr>
+            <tr class = "tr_bot">
+                <td>Date :{{data.paid_date}}</td>
+                <th colspan = "3"width = "450px"><center>Tax Invoice</center></th>
+                <td colspan='2' class ="text-end">Bill No :{{data.bill_no}} </td>
+            </tr>
+            <tr border = '1'>
+                <td colspan = "6">Bill Details</td>
+            </tr>
+            <tr>
+                <td colspan = "3">
+                    Bill To : 
+                    <table width = "100%">
+                        <tr>
+                            <td>Student Name :</td>
+                            <td>{{course.Name}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Current Due Amount :</td>
+                            <td>{{data.current_paid}}</td>
+                        </tr>
+                        <tr>
+                            <td>Total Paid :</td>
+                            <td>{{data.total_paid}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td colspan = "3">
+                    Course Details :
+                    <table width ="100%">
+                        <tr>
+                            <td>Course Name :</td>
+                            <td>{{course.Selected_course}}</td>
+                        </tr>
+                        {% comment %} <tr>
+                            <td>Duration</td>
+                            <td>{{course.duration}}</td>
+                        </tr> {% endcomment %}
+                        <tr>
+                            <td>Batch</td>
+                            <td>{{course.batch}}</td> 
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan ="3">
+                    Cash Received
+                </td>
+                <td colspan = "2" class ="text-end">Balance Amount:</td>
+                <td>{{data.balance_amount}}</td>
+            </tr>
+           
+        </table>
+        
+    </div>
+    <div  class = "btn">{% include "stu_details/print_button.html" %}</div>
+
+</div>
+
+</div>
+
+
+{% endif %}
+
+{% endblock  %}

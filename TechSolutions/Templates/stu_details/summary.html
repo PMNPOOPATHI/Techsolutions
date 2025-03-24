@@ -1,0 +1,48 @@
+{% extends "stu_details/base.html" %}
+
+{% block content %}
+{% include "stu_details/navbar.html" %}
+
+<center><h4>Accounts Summary</h4></center>
+<div class = "container-fluid d-flex row justify-content-center">
+<div class = " bg-secondary-emphasis ">
+    <table border ="1" style = " text-align:center;height:'auto';width:100%" class = "col-md-12">
+
+        <tr>
+            <th>S.No</th>
+            <th>Date</th>
+            <th>Opening Balance</th>
+            <th>Type (Credit/Debit)</th>
+            <th>Details</th>
+            <th>Amount</th>
+            <th>Closing_Balance</th>
+        </tr>
+        {% if data %}
+        {% for i in data %}
+    
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.opening_balance}}</td>
+            <td></td>
+            <td>{{i.Expence_detail}}</td>
+            <td>{{i.Expence_Amount}}</td>
+            <td>{{i.closing_balance}}</td>
+        </tr>
+        
+        {% endfor %}
+        <tr>
+            <td colspan = '4'>Total Expence</td>
+            <td>{{i.Total_Expences}}</td>
+        </tr> 
+        {% endif %}
+    </table>
+
+</div>
+
+
+
+</div>
+
+
+{% endblock  %}

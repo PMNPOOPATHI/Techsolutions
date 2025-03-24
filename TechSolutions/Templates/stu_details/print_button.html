@@ -1,0 +1,13 @@
+<div class = "d-grid content-align-center" id = "CON4">
+  <button onclick="printDiv()" class="btn btn-success">Print</button>  
+</div>
+<script>
+    function printDiv() {
+        var divContent = document.getElementById('printDiv').innerHTML;
+        var originalContents = document.body.innerHTML;
+        console.log(divContent);
+        window.print();
+        document.body.innerHTML = divContent;
+        document.body.innerHTML = originalContents;
+    }
+</script>
